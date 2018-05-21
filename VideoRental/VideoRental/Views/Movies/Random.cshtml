@@ -1,8 +1,29 @@
-﻿@model VideoRental.Models.Movie
+﻿@model VideoRental.ViewModels.RandomMovieViewModel
 @{
     ViewBag.Title = "Random";
 }
 
-<h2>@Model.Name</h2>
+@*<h2>@Model.Name</h2>*@
+
+@*Poor way of passing data. This was in the beginning of mvc framework*@
+@*this approach was improved by using ViewBag, which is dynamic*@
+<h2>@( ((Movie) ViewData["Movie"]).Name)</h2>
+@ViewBag.RandomMovie
+
+@*but these methods viewbag and viewdata are not good way of passing data to the view*@
+@* it is because *@
+@if (Model.Customers.Count == 0 )
+{
+    <p> No one has rented this movie before. </p>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+    {
+        
+    }
+    </ul>
+}
 
 

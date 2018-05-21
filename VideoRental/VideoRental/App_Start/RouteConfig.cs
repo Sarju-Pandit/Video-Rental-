@@ -13,6 +13,16 @@ namespace VideoRental
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Most specific route should be in the front , 
+            //otherwise the most general route will be called
+
+            //routes.MapRoute(
+            //    name: "CustomRoute",
+            //    url: "{controller}/{action}/{year}/{month}",
+            //    new {controller="Movies", action="ByReleaseDate" }
+            //  //  new {  year = @"\d{4}", month=@"\d{2}"}
+            //    );
+            routes.MapMvcAttributeRoutes();
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
